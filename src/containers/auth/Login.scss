@@ -1,0 +1,104 @@
+.login-background {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    display: flex;
+    overflow-y: auto;
+
+    .login-containner {
+        display: flex;
+        // width: 800px;
+        max-width: 800px;
+
+        margin: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+
+        .login-image {
+            width: 50%;
+            background-size: contain;
+
+            border-bottom-left-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+
+        .login-content {
+            padding: 15px;
+            width: 50%;
+
+
+            .login-text {
+                font-size: 2.6rem;
+                font-weight: 600;
+                text-align: center;
+                margin: 5% 0;
+            }
+
+            .form-group {
+                .form-control {
+                    margin: 5px;
+
+                }
+
+                .wrap-pass {
+                    position: relative;
+
+                    .icon-eye {
+                        position: absolute;
+                        right: 5px;
+                        top: 10px;
+                        z-index: 1;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+            .login-btn {
+                width: 100%;
+                height: 38px;
+                background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+                color: #fff;
+                margin: 26px 0 18px 0;
+                border: transparent;
+                border-radius: 15px;
+            }
+
+            .text-forgot {
+                float: right;
+                margin-right: 10px;
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            .login-socials-text {
+                display: block;
+                text-align: center;
+                margin: 24px 0;
+                font-size: 1.2rem;
+            }
+
+            .login-socials {
+
+                text-align: center;
+
+
+                .login-socials__facebook {
+                    margin-right: 24px;
+                    text-decoration: none;
+                    font-size: 2.6rem;
+                    position: relative;
+                    top: -5px;
+                    font-weight: 600;
+                }
+
+                .login-socials__google {
+                    text-decoration: none;
+                    font-size: 3rem;
+                    font-weight: 600;
+
+                    color: red;
+                }
+            }
+        }
+    }
+}
