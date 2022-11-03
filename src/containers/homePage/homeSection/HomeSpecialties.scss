@@ -1,0 +1,23 @@
+.section-containner {
+    &.specialty-containner {
+        background-color: #fff;
+
+        .section-content {
+            &.specialty-content {
+                // .section-header {
+
+                // }
+                .section-body {
+                    .section-item-image {
+                        &.specialty-image {
+                            border-radius: 10px;
+                            background-image: url('../../../assets/speciallity/bacsi.jpg');
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

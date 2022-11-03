@@ -1,0 +1,28 @@
+.section-containner {
+    &.handBook-containner {
+        background-color: #f5f5f5;
+
+        .section-item {
+            display: flex !important;
+
+
+
+            .section-item-image {
+                &.handBook-image {
+                    width: 50% !important;
+                    border-radius: 10px;
+                    background-image: url('../../../assets/handbook/khambenhphoi.jpg');
+                }
+
+            }
+
+            .section-item-title {
+                &.handBook-title {
+                    flex: 1;
+
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

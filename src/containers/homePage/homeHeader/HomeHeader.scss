@@ -1,0 +1,128 @@
+@import'../HomePage.scss';
+
+.wrap-home-container {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    .home-container {
+        @include heightHeader;
+        padding: 0 20px;
+        max-width: 1200px;
+        margin: auto;
+
+
+        .home-content-nav {
+            width: 100%;
+            height: 67%;
+            display: flex;
+            margin-top: 8px;
+
+            .home-nav_logo {
+                width: 25%;
+                display: flex;
+                align-items: center;
+                padding: 8px 0;
+
+
+                .home-nav_logo-item {
+                    background: url(../../../assets/images/logo.svg) center center no-repeat;
+                    flex: 1;
+                    height: 100%;
+                    cursor: pointer;
+
+                }
+
+                .home-nav_menu-item {
+                    font-size: 2rem;
+                    color: gray;
+                    cursor: pointer;
+                }
+            }
+
+            .home-nav_list {
+                width: 50%;
+                margin: 0;
+                padding-left: 0;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                .home-nav_item {
+                    .home-nav_link {
+                        text-decoration: none;
+                        color: #333;
+                        display: flex;
+                        flex-direction: column;
+
+                        .home-nav_link-title {
+                            font-size: 1rem;
+                            font-weight: 600;
+                        }
+
+                        .home-nav_link-discription {
+                            font-size: 0.8em;
+                            font-weight: 300;
+                        }
+                    }
+
+                }
+            }
+
+            .home-nav_support {
+                width: 25%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+
+                .home-nav_support-icon {
+                    font-size: 1.8rem;
+                    color: rgb(49, 128, 247);
+                    cursor: pointer;
+                }
+
+                .home-nav_support-text {
+                    font-size: 1rem;
+                    color: #333;
+                    font-weight: 400;
+                    cursor: pointer;
+                }
+
+                .language-vn {
+                    font-size: 1.2rem;
+                    color: #333;
+                    font-weight: 600;
+                    cursor: pointer;
+                    opacity: 0.5;
+
+                    &.active {
+                        color: orange;
+                        opacity: 1;
+                    }
+                }
+
+                .language-en {
+                    font-size: 1.2rem;
+                    color: #333;
+                    font-weight: 600;
+                    cursor: pointer;
+                    opacity: 0.5;
+
+                    &.active {
+                        color: rgb(49, 128, 247);
+                        opacity: 1;
+                    }
+                }
+
+            }
+        }
+
+    }
+}

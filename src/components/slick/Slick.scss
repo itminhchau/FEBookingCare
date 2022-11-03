@@ -1,0 +1,28 @@
+.slick-slider {
+    height: 250px;
+
+    .slick-list {
+        width: calc(100% + 28px) !important;
+    }
+
+    .slick-slide {
+        height: 250px;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 36px !important;
+        position: absolute;
+        top: -25px;
+        color: #d3d3d3;
+
+        &:hover {
+            color: rgb(49, 128, 247);
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        z-index: 1;
+    }
+}
