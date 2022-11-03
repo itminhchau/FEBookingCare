@@ -1,0 +1,39 @@
+.section-containner {
+    &.home-about-containner {
+        background-color: #fff;
+        height: 450px !important;
+        border-top: 1px solid #d3d3d3;
+        border-bottom: 1px solid #d3d3d3;
+        box-shadow: 1px 1px 1px #d3d3d3;
+
+        .section-content {
+            &.home-about-content {
+                height: 100% !important;
+
+                .section-header {
+                    margin-bottom: 20px;
+                }
+
+                .section-body {
+                    &.home-about-body {
+                        display: flex;
+
+                        .about-video {
+                            width: 50%;
+                        }
+
+                        .about-title {
+                            flex: 1;
+                            text-align: justify;
+                            font-style: italic;
+                            font-size: 1rem;
+                            padding: 10px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+}

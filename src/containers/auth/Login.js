@@ -108,10 +108,10 @@ class Login extends Component {
                             </div>
                             <span className='login-socials-text'>Login with: </span>
                             <div className='col-12 login-socials'>
-                                <a href="" className="login-socials__facebook ">
+                                <a href="#" className="login-socials__facebook ">
                                     <i className=" fab fa-facebook-f"></i>
                                 </a>
-                                <a href="" className="login-socials__google ">
+                                <a href="#" className="login-socials__google ">
                                     <i className=" fab fa-google-plus-g"></i>
                                 </a>
                             </div>

@@ -21,10 +21,15 @@ const deleteUserService = async (idUser) => {
 const updateUserService = async (userData) => {
     return await axios.put('/api/v1/update/user', userData)
 }
+
+const getAllCodeService = async (inputType) => {
+    return await axios.get(`/api/v1/allcode?type=${inputType}`)
+}
 export default {
     handleLogin,
     getUserService,
     createUserService,
     deleteUserService,
-    updateUserService
+    updateUserService,
+    getAllCodeService
 }

@@ -1,0 +1,12 @@
+.section-containner {
+    &.mediacalFacilility-containner {
+        background-color: #f5f5f5;
+
+        .section-item-image {
+            &.mediacalFacilility-image {
+                border-radius: 10px;
+                background-image: url('../../../assets/mediacalFacilility/benhvienchoray.jpg');
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+$heightHeader: 76px;
+
+@mixin heightHeader {
+    height: $heightHeader;
+}
+
+@mixin marginTop {
+    margin-top: $heightHeader;
+}
+
+.section-containner {
+    height: 300px;
+    width: 100%;
+    padding: 15px;
+
+    .section-content {
+        margin: 0 185px;
+        height: 100%;
+
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .section-header-title {
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: #333;
+            }
+
+            .section-header-btn {
+                background-color: #e0dede;
+                color: #fff;
+                border: none;
+                padding: 5px 10px;
+
+                &:hover {
+                    color: #d3d3d3;
+                    background-color: yellow;
+                }
+            }
+        }
+
+        .section-body {
+
+            //custom css slick
+            .slick-slider {
+                height: 250px;
+
+                .slick-list {
+                    width: calc(100% + 28px) !important;
+                }
+
+                .slick-slide {
+                    height: 250px;
+                }
+
+                .slick-prev:before,
+                .slick-next:before {
+                    font-size: 36px !important;
+                    position: absolute;
+                    top: -25px;
+                    color: #d3d3d3;
+
+                    &:hover {
+                        color: rgb(49, 128, 247);
+                    }
+                }
+
+                .slick-prev,
+                .slick-next {
+                    z-index: 1;
+                }
+            }
+
+            // css item section
+            .section-item {
+                width: 100%;
+                height: 100%;
+                padding: 0 8px;
+                margin-top: 20px;
+
+                .section-item-image {
+                    height: 160px;
+                    width: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+
+                .section-item-title {
+                    font-size: 1.2rem;
+
+                }
+
+            }
+        }
+
+
+
+
+    }
+}
