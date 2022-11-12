@@ -11,8 +11,12 @@ export const adminMenu = [
             },
 
             { name: 'menu.admin.crud-user', link: '/system/user-manage' },
+            {
+                name: 'menu.admin.manage-doctor', link: '/system/doctor-manage'
+            },
             { name: 'menu.admin.manage-admin' },
-            { name: 'menu.admin.manage-doctor' }
+
+
             // { name: 'menu.system.system-parameter.header', link: '/system/system-parameter' },
         ]
     },

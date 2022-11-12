@@ -145,15 +145,15 @@ class UserManage extends Component {
                             <tbody>
                                 {arrayUser && arrayUser.map((item, index) => {
                                     return (
-                                        <tr>
+                                        <tr key={index}>
                                             <td>{index + 1}</td>
                                             <td>{item.firstName}</td>
                                             <td>{item.lastName}</td>
                                             <td>{item.email}</td>
                                             <td>{item.address}</td>
                                             <td>
-                                                <button className='btnn-edit' onClick={() => this.handlerOnclickEditUser(item)}><i class="fas fa-edit"></i></button>
-                                                <button className='btnn-delete' onClick={() => this.handlerDeleteUser(item)}><i class="fas fa-trash"></i> </button>
+                                                <button className='btnn-edit' onClick={() => this.handlerOnclickEditUser(item)}><i className="fas fa-edit"></i></button>
+                                                <button className='btnn-delete' onClick={() => this.handlerDeleteUser(item)}><i className="fas fa-trash"></i> </button>
                                             </td>
                                         </tr>
                                     )

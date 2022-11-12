@@ -1,6 +1,6 @@
 import actionTypes from "./actionTypes";
 import userService from "../../services/userService";
-
+import { toast } from 'react-toastify';
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START
 // })
@@ -95,11 +95,13 @@ export const createUser = (data) => {
             console.log("check res create user", res);
             if (res && res.errCode === 0) {
                 dispatch(createUserSuccess())
+                dispatch(getAllUser())
             } else {
                 dispatch(createUserFail())
             }
         } catch (error) {
-
+            console.log("eror create user", error);
+            dispatch(createUserFail())
         }
     }
 }
@@ -109,4 +111,176 @@ export const createUserSuccess = () => ({
 })
 export const createUserFail = () => ({
     type: actionTypes.CREATE_USER_FAIL
+})
+
+// GET ALL USER
+
+export const getAllUser = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getUserService("ALL")
+            console.log("check res", res);
+            if (res && res.errCode === 0) {
+                dispatch(getUserSuccess(res.user.reverse()))
+            } else {
+                dispatch(getUserFail())
+            }
+
+        } catch (error) {
+            console.log("error get all user", error);
+            dispatch(getUserFail())
+        }
+    }
+}
+
+export const getUserSuccess = (dataUser) => ({
+    type: actionTypes.GET_ALL_USER_SUCCESS,
+    dataUser: dataUser
+})
+export const getUserFail = () => ({
+    type: actionTypes.GET_ALL_USER_FAIL
+})
+
+// DELETE USER
+export const deleteUser = (idUser) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.deleteUserService(idUser)
+            console.log("check res", res);
+            if (res && res.errCode === 0) {
+                dispatch(deleteUserSuccess())
+                toast.success("delete user success")
+                dispatch(getAllUser())
+            } else {
+                dispatch(deleteUserFail())
+                toast.error("delete user fail")
+            }
+
+        } catch (error) {
+            console.log("error get all user", error);
+            dispatch(deleteUserFail())
+            toast.error("delete user fail")
+        }
+    }
+}
+
+export const deleteUserSuccess = () => ({
+    type: actionTypes.DELETE_USER_SUCCESS,
+})
+export const deleteUserFail = () => ({
+    type: actionTypes.DELETE_USER_FAIL
+})
+
+//EDIT
+
+export const editUser = (dataUser) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.updateUserService(dataUser)
+            console.log("check res", res);
+            if (res && res.errCode === 0) {
+                dispatch(edittUserSuccess())
+                toast.success("edit user success")
+                dispatch(getAllUser())
+            } else {
+                dispatch(editUserFail())
+                toast.error("edit user fail")
+            }
+
+        } catch (error) {
+            console.log("error get all user", error);
+            dispatch(editUserFail())
+            toast.error("edit user fail")
+        }
+    }
+}
+
+export const edittUserSuccess = () => ({
+    type: actionTypes.EDIT_USER_SUCCESS,
+})
+export const editUserFail = () => ({
+    type: actionTypes.EDIT_USER_FAIL
+})
+
+//TOP DOCTOR
+
+export const getTopDoctor = () => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: actionTypes.FETCH_TOP_DOCTOR_START
+            })
+            let res = await userService.getTopDoctorService('10')
+            if (res && res.errCode === 0) {
+                dispatch(getTopDoctorSuccess(res.data))
+            } else {
+                dispatch(getTopDoctorFail())
+            }
+        } catch (error) {
+            dispatch(getTopDoctorFail())
+        }
+    }
+}
+
+export const getTopDoctorSuccess = (dataUser) => ({
+    type: actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
+    data: dataUser
+})
+
+export const getTopDoctorFail = () => ({
+    type: actionTypes.FETCH_TOP_DOCTOR_FAIL
+})
+
+// get all doctor
+
+export const getAllDoctor = () => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: actionTypes.FETCH_ALL_DOCTOR_START
+            })
+            let res = await userService.getAllDoctorService()
+            if (res && res.errCode == 0) {
+                dispatch(getAllDoctorSuccess(res.data))
+            } else {
+                dispatch(getAllDoctorFail())
+            }
+        } catch (e) {
+            dispatch(getAllDoctorFail())
+        }
+    }
+}
+
+export const getAllDoctorSuccess = (dataInput) => ({
+    type: actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+    data: dataInput
+})
+
+export const getAllDoctorFail = () => ({
+    type: actionTypes.FETCH_ALL_DOCTOR_FAIL
+})
+
+// Create doctor
+
+export const createDoctor = (dataInput) => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: actionTypes.CREATE_DOCTOR_START
+            })
+            let res = await userService.createDoctorService(dataInput)
+            if (res && res.errCode === 0) {
+                dispatch(createDoctorSuccess)
+            }
+        } catch (e) {
+            dispatch(createDoctorFail)
+        }
+    }
+}
+
+export const createDoctorSuccess = () => ({
+    type: actionTypes.CREATE_DOCTOR_SUCCESS
+})
+export const createDoctorFail = () => ({
+    type: actionTypes.CREATE_DOCTOR_FAIL
 })

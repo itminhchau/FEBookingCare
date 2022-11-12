@@ -25,11 +25,26 @@ const updateUserService = async (userData) => {
 const getAllCodeService = async (inputType) => {
     return await axios.get(`/api/v1/allcode?type=${inputType}`)
 }
+
+const getTopDoctorService = async (limitInput) => {
+    return await axios.get(`/api/v1/top/doctor?limit=${limitInput}`)
+}
+
+const getAllDoctorService = async () => {
+    return await axios.get('/api/v1/all/doctor')
+}
+
+const createDoctorService = async (doctorData) => {
+    return await axios.post('/api/v1/create/doctor', doctorData)
+}
 export default {
     handleLogin,
     getUserService,
     createUserService,
     deleteUserService,
     updateUserService,
-    getAllCodeService
+    getAllCodeService,
+    getTopDoctorService,
+    getAllDoctorService,
+    createDoctorService
 }
