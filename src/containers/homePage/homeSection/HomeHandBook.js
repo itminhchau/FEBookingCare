@@ -10,7 +10,7 @@ class HomeHandBook extends React.Component {
 
         const settings = {
             dots: false,
-            infinite: true,
+            infinite: false,
             speed: 500,
             slidesToShow: 2,
             slidesToScroll: 2

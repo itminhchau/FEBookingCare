@@ -40,6 +40,10 @@
             "manage-handbook": "Manage HandBook"
         }
     },
+    "homeSection": {
+        "doctorTop": "Last week's featured doctor",
+        "see-more": "see more"
+    },
     "form": {
         "user-redux": {
             "email": "email",
@@ -52,7 +56,9 @@
             "position": "Position",
             "role": "RoleId",
             "image": "Avatar",
-            "adduser": "Add User"
+            "adduser": "Add User",
+            "create-save": "save",
+            "edit-save": "save change"
         }
     }
 }

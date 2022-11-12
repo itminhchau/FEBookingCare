@@ -1,0 +1,45 @@
+.doctor-body {
+    .content-body {
+        display: flex;
+        justify-content: space-around;
+
+        width: 100%;
+        padding: 16px;
+
+        .content-left {
+            width: 400px;
+            height: 32px;
+        }
+
+        .content-right {
+            flex: 1;
+            text-align: center;
+
+            .description {
+                width: 80%;
+                border: 1px solid #ddd !important;
+                border-radius: 10px;
+                padding: 8px;
+            }
+        }
+    }
+
+    .wrap-markdown {
+        padding: 16px;
+    }
+
+    .wrap-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0 16px 24px 0;
+
+        .btn-save-doctor {
+            width: 100px;
+            height: 32px;
+            border: none;
+            border-radius: 10px;
+            background-color: orange;
+
+        }
+    }
+}

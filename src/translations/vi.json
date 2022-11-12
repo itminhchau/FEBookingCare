@@ -25,6 +25,10 @@
         "medical": "Y tế",
         "healthy": "Sức Khỏe"
     },
+    "homeSection": {
+        "doctorTop": "Bác sĩ nổi bật tuần qua",
+        "see-more": "Xem thêm"
+    },
     "menu": {
         "admin": {
             "system-user": "Người dùng hệ thống",
@@ -52,7 +56,9 @@
             "position": "vị trí",
             "role": "Vai trò",
             "image": "ảnh đại diện",
-            "adduser": "Thêm người dùng"
+            "adduser": "Thêm người dùng",
+            "create-save": "Lưu thông tin",
+            "edit-save": "Lưu thay đổi"
         }
     }
 }

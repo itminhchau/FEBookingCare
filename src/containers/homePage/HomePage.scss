@@ -52,6 +52,10 @@ $heightHeader: 76px;
                     width: calc(100% + 28px) !important;
                 }
 
+                .slick-disabled {
+                    display: none !important;
+                }
+
                 .slick-slide {
                     height: 250px;
                 }
