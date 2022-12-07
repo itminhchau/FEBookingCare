@@ -38,6 +38,9 @@
             "manage-specialties": "Manage specialties",
             "handbook": "HandBook",
             "manage-handbook": "Manage HandBook"
+        },
+        "doctor": {
+            "doctor-schedule": "schedule Manage"
         }
     },
     "homeSection": {

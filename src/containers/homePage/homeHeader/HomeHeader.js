@@ -4,10 +4,14 @@ import './HomeHeader.scss'
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGE } from '../../../utils/constant';
 import { changeLanguagePage } from '../../../store/actions'
+import { withRouter } from "react-router";
 class HomeHeader extends React.Component {
 
     handleChangeLanguage = (language) => {
         this.props.changeLanguageRedux(language)
+    }
+    handleGotoHome = () => {
+        this.props.history.push('/home')
     }
     render() {
         let { languageRedux } = this.props
@@ -19,7 +23,7 @@ class HomeHeader extends React.Component {
                         <nav className="home-content-nav">
                             <div className="home-nav_logo">
                                 <i className="fas fa-bars home-nav_menu-item"></i>
-                                <div className="home-nav_logo-item"></div>
+                                <div className="home-nav_logo-item" onClick={() => this.handleGotoHome()}></div>
                             </div>
                             <ul className="home-nav_list">
                                 <li className="home-nav_item">
@@ -72,4 +76,4 @@ const mapDispatchToProps = (dispatch) => {
         changeLanguageRedux: (language) => dispatch(changeLanguagePage(language))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader))

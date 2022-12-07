@@ -7,7 +7,8 @@ const initialState = {
     isLoading: false,
     arrayUser: [],
     arrayTopDoctor: [],
-    arrayAllDoctor: []
+    arrayAllDoctor: [],
+    arrayTimeSchedule: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -115,7 +116,23 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
-
+        // get doctor time schedule
+        case actionTypes.GET_DOCTOR_TIME_SCHEDULE_START:
+            state.isLoading = true
+            return {
+                ...state
+            }
+        case actionTypes.GET_DOCTOR_TIME_SCHEDULE_SUCCESS:
+            state.arrayTimeSchedule = action.timeInfor
+            state.isLoading = false
+            return {
+                ...state
+            }
+        case actionTypes.GET_DOCTOR_TIME_SCHEDULE_FAIL:
+            state.isLoading = false
+            return {
+                ...state,
+            }
         default:
             return state;
     }

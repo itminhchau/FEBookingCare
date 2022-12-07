@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { LANGUAGE } from '../../utils/constant';
+import { LANGUAGE, DOCTOR_ROLE } from '../../utils/constant';
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
-import { adminMenu } from './menuApp';
+import { adminMenu, doctorMenu } from './menuApp';
 import { FormattedMessage } from 'react-intl';
 import './Header.scss';
 
 class Header extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            roleUser: ''
+        }
+    }
+    componentDidMount = () => {
+        this.setState({
+            roleUser: this.props.userInfo.roleid
+        })
+    }
     handleOnclickChangeLanguage = (language) => {
         this.props.changeLanguage(language)
     }
+    componentDidUpdate = (prevProps, prevState) => {
+
+    }
     render() {
         const { processLogout, languageRedux, userInfo } = this.props;
-
+        let { roleUser } = this.state
         return (
             <div className="header-container">
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
-                    <Navigator menus={adminMenu} />
+                    {roleUser && roleUser === DOCTOR_ROLE.ADMIN &&
+                        <Navigator menus={adminMenu} />
+                    }
+                    {roleUser && roleUser === DOCTOR_ROLE.DOCTOR &&
+                        <Navigator menus={doctorMenu} />
+                    }
                 </div>
 
                 {/* nút logout */}

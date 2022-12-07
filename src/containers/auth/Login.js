@@ -62,6 +62,11 @@ class Login extends Component {
             isShowHidePass: !this.state.isShowHidePass
         })
     }
+    handleEnterLogin = (event) => {
+        if (event.key === "Enter") {
+            this.handleOnclickLogin()
+        }
+    }
     render() {
 
         return (
@@ -93,6 +98,7 @@ class Login extends Component {
                                         placeholder='Enter password'
                                         value={this.state.password}
                                         onChange={(event) => this.handleOnchangePassWord(event)}
+                                        onKeyDown={(event) => this.handleEnterLogin(event)}
                                     />
                                     <i className={this.state.isShowHidePass ? 'far fa-eye icon-eye' : 'far fa-eye-slash icon-eye'} onClick={() => this.handleShowHide()}></i>
                                 </div>

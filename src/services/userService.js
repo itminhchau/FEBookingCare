@@ -37,6 +37,18 @@ const getAllDoctorService = async () => {
 const createDoctorService = async (doctorData) => {
     return await axios.post('/api/v1/create/doctor', doctorData)
 }
+
+const getDetailDoctor = async (idDoctor) => {
+    return await axios.get(`http://localhost:8080/api/v1/detail/doctor?id=${idDoctor}`)
+}
+
+const getMarkdownService = async (idDoctor) => {
+    return await axios.get(`http://localhost:8080/api/v1/get/markdown?id=${idDoctor}`)
+}
+
+const createDoctorScheduleService = async (dataSchedule) => {
+    return await axios.post(`/api/v1/create/schedule/doctor`, dataSchedule)
+}
 export default {
     handleLogin,
     getUserService,
@@ -46,5 +58,8 @@ export default {
     getAllCodeService,
     getTopDoctorService,
     getAllDoctorService,
-    createDoctorService
+    createDoctorService,
+    getDetailDoctor,
+    getMarkdownService,
+    createDoctorScheduleService
 }
