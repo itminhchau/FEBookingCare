@@ -1,0 +1,39 @@
+.wrap-schedule{
+    .tilte {
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+        display: block;
+        margin: 24px 0 12px 0;
+    }
+    .time-schedule {
+
+        margin-top: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .btn-timer{
+           height: 36px;
+           border: none;
+           font-size: 1.2rem;
+           border-radius: 2px;
+
+           &.active{
+            background-color: orange;
+            color: white;
+           }
+        }
+    }
+    .label-choose-doctor{
+        font-size: 1.2rem;
+        color: #333;
+    }
+    .label-choose-date{
+        font-size: 1.2rem;
+        color: #333;
+    }
+    .btn-primary{
+        margin-left: 10px;
+    }
+}

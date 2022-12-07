@@ -1,15 +1,23 @@
 export const path = {
     HOME: '/',
-    HOMEPAGE: '/homepage',
+    HOMEPAGE: '/home',
     LOGIN: '/login',
     LOG_OUT: '/logout',
-    SYSTEM: '/system'
+    SYSTEM: '/system',
+    DOCTOR: '/doctor',
+    DETAIL_DOCTOR: '/detail/doctor/:id'
 };
 
 export const LANGUAGE = {
     VI: 'vi',
     EN: 'en'
 };
+
+export const DOCTOR_ROLE = {
+    ADMIN: 'R1',
+    DOCTOR: 'R2',
+    PATIENT: 'R3'
+}
 
 export const ACTION_CRUD = {
     CREATE: "CREATE",

@@ -2,7 +2,8 @@ import actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isLoggedIn: false,
-    userInfo: null
+    userInfo: null,
+    doctorInfo: {}
 }
 
 const userReducer = (state = initialState, action) => {
@@ -25,6 +26,24 @@ const userReducer = (state = initialState, action) => {
                 isLoggedIn: false,
                 userInfo: null
             }
+        // get detail doctor
+        case actionTypes.GET_DETAIL_DOCTOR_START:
+            state.isLoading = true
+            return {
+                ...state
+            }
+        case actionTypes.GET_DETAIL_DOCTOR_SUCCESS:
+            state.doctorInfo = action.doctorInfo
+            state.isLoading = false
+            return {
+                ...state
+            }
+        case actionTypes.GET_DETAIL_DOCTOR_FAIL:
+            state.isLoading = false
+            return {
+                ...state,
+            }
+
         default:
             return state;
     }

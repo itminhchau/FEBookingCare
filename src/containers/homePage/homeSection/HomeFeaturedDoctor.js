@@ -6,6 +6,7 @@ import * as actions from '../../../store/actions'
 import { LANGUAGE } from '../../../utils';
 import { CommonUtils } from '../../../utils';
 import { FormattedMessage } from "react-intl";
+import { withRouter } from "react-router";
 class HomeFeaturedDoctor extends React.Component {
     constructor(props) {
         super(props)
@@ -22,6 +23,10 @@ class HomeFeaturedDoctor extends React.Component {
                 listTopDoctor: this.props.topDoctorDataRedux
             })
         }
+    }
+
+    handlerClickDoctor = (user) => {
+        this.props.history.push(`/detail/doctor/${user.id}`);
     }
     render() {
         let { listTopDoctor } = this.state
@@ -41,7 +46,7 @@ class HomeFeaturedDoctor extends React.Component {
                                     let imageBlodToBase64 = new Buffer(item.image, 'base64').toString('binary')
                                     let name = `${item.lastName} ${item.firstName}`
                                     return (
-                                        <div className="section-item">
+                                        <div className="section-item" onClick={() => this.handlerClickDoctor(item)}>
                                             <div className="outer-image">
                                                 <div className="section-item-image featuredDoctor-image"
                                                     style={{ backgroundImage: `url(${imageBlodToBase64})` }}
@@ -78,4 +83,4 @@ const mapDispatchToProps = (dispatch) => {
         topDoctorRedux: () => dispatch(actions.getTopDoctor())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(HomeFeaturedDoctor)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeFeaturedDoctor))

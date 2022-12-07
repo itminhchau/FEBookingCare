@@ -1,6 +1,7 @@
 import actionTypes from "./actionTypes";
 import userService from "../../services/userService";
 import { toast } from 'react-toastify';
+import { dispatch } from "../../redux";
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START
 // })
@@ -269,11 +270,19 @@ export const createDoctor = (dataInput) => {
                 type: actionTypes.CREATE_DOCTOR_START
             })
             let res = await userService.createDoctorService(dataInput)
+            if (res && res.errCode == 1) {
+                toast.error("missing infor")
+                // alert("infor existed can't create")
+            }
+            console.log("check res create", res);
             if (res && res.errCode === 0) {
                 dispatch(createDoctorSuccess)
+                toast.success("save information success")
+                console.log("save information");
             }
         } catch (e) {
             dispatch(createDoctorFail)
+            toast.error("infor existed can't create")
         }
     }
 }
@@ -283,4 +292,31 @@ export const createDoctorSuccess = () => ({
 })
 export const createDoctorFail = () => ({
     type: actionTypes.CREATE_DOCTOR_FAIL
+})
+
+
+// GET TIME SCHEDULE
+
+export const getDoctorTimeSchedule = () => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: actionTypes.GET_DOCTOR_TIME_SCHEDULE_START
+            })
+            let res = await userService.getAllCodeService('TIME')
+            if (res && res.errCode === 0) {
+                dispatch(getDoctorTimeScheduleSuccess(res.data))
+            }
+        } catch (error) {
+            dispatch(getDoctorTimeScheduleFail())
+        }
+    }
+}
+
+export const getDoctorTimeScheduleSuccess = (timeInfor) => ({
+    type: actionTypes.GET_DOCTOR_TIME_SCHEDULE_SUCCESS,
+    timeInfor: timeInfor
+})
+export const getDoctorTimeScheduleFail = () => ({
+    type: actionTypes.GET_DOCTOR_TIME_SCHEDULE_FAIL,
 })
