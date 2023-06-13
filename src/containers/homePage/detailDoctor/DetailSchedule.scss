@@ -1,0 +1,51 @@
+.time-schedule-wrap{
+    margin-top: 12px;
+   .time-schedule-week{
+    .select-option-days{
+            font-size: 1.2rem;
+            width: 150px;
+            color: #337ab7;
+            border: none;
+            /* text-decoration: underline; */
+            border-bottom: 1px solid;
+            font-weight: 550;
+            outline: none;
+            
+        }
+   }
+   .time-schedule-times{
+    .schedule-tile{
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 10px;
+        display: block;
+        text-transform: uppercase;
+    }
+    .wrap-btn-time {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        .no-schedule{
+            font-size: 1.2rem;
+            margin-left: 8px;
+            font-style: italic;
+        }
+        .btn-time {
+            min-width: 120px;
+            padding: 8px 10px;
+            border: none;
+            border-radius: 2px;
+            color: #333;
+            background-color: rgb(228, 228, 8);
+            font-size: 1.2rem;
+            font-weight: 600;
+            &:hover{
+                background-color: #337ab7;
+                color: white;
+            }
+            
+        }
+    }
+   }
+}

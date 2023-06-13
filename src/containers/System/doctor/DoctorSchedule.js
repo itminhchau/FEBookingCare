@@ -1,16 +1,13 @@
+import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
-import { dispatch } from "../../../redux";
-import './DoctorSchedule.scss'
 import Select from 'react-select';
-import { LANGUAGE, ACTION_CRUD } from '../../../utils';
-import * as actions from "../../../store/actions";
-import { FormattedMessage } from 'react-intl';
-import DatePicker from "../../../components/Input/DatePicker";
-import moment from "moment/moment";
 import { toast } from 'react-toastify';
-import _ from "lodash";
+import DatePicker from "../../../components/Input/DatePicker";
 import userService from "../../../services/userService";
+import * as actions from "../../../store/actions";
+import { LANGUAGE } from '../../../utils';
+import './DoctorSchedule.scss';
 class DoctorSchedule extends React.Component {
     constructor(props) {
         super(props)
@@ -68,17 +65,23 @@ class DoctorSchedule extends React.Component {
                 object.label = languageRedux === LANGUAGE.VI ? labelVn : labelEn
                 object.value = item.id
                 result.push(object)
+                return result
             })
         }
         return result
     }
     handleOnChangeDate = (date) => {
+
         if (date && date.length > 0) {
             // let dateFormat = moment(date[0]).format("DD/MM/YYYY")
-            // let dateFormat = new Date(date[0]).getTime()
-            let dateFormat = new Date(Date.UTC(date[0].getFullYear(), date[0].getMonth(), date[0].getDate(), date[0].getHours(), date[0].getMinutes(), date[0].getSeconds())).getTime()
+            let dateFormat = new Date(date[0]).getTime()
+
+            //let dateFormat = new Date(Date.UTC(date[0].getFullYear(), date[0].getMonth(), date[0].getDate())).getTime()
+            console.log("date para", dateFormat);
+            let dateFormatString = dateFormat.toString()
+
             this.setState({
-                timeChoosed: dateFormat
+                timeChoosed: dateFormatString
             })
 
         }
@@ -87,7 +90,7 @@ class DoctorSchedule extends React.Component {
         let { listTimeSchedule } = this.state
         if (listTimeSchedule && listTimeSchedule.length > 0) {
             listTimeSchedule = listTimeSchedule.map((item) => {
-                if (item.id == time.id) {
+                if (item.id === time.id) {
                     item.isSelected = !item.isSelected
                 }
                 return item
@@ -118,6 +121,7 @@ class DoctorSchedule extends React.Component {
                     obj.timeType = item.keyMap
                     obj.maxNumber = maxNumber
                     result.push(obj)
+                    return result
                 })
             } else {
                 return toast.error("missing parameter time schedule")
@@ -130,7 +134,7 @@ class DoctorSchedule extends React.Component {
             date: timeChoosed
         })
 
-        console.log("check time choose", timeChoosed);
+        // console.log("check time choose", timeChoosed);
         if (res && res.errCode === 0) {
             toast.success("create success")
         } else {
@@ -146,8 +150,9 @@ class DoctorSchedule extends React.Component {
         })
     }
     render() {
-        let { listDoctor, currentDate, timeChoosed, listTimeSchedule, maxNumber } = this.state
-        console.log("check max number", maxNumber);
+        let { listDoctor, currentDate, listTimeSchedule } = this.state
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+        //console.log("check max number", maxNumber);
         return (
             <div className="wrap-schedule">
 
@@ -169,7 +174,7 @@ class DoctorSchedule extends React.Component {
                             <DatePicker
                                 className="form-control"
                                 onChange={(date) => this.handleOnChangeDate(date)}
-                                minDate={currentDate}
+                                minDate={yesterday}
                                 value={currentDate}
                             />
                         </div>

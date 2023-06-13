@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import './DetailDoctor.scss'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGE } from "../../../utils";
-import HomeHeader from "../homeHeader/HomeHeader";
 import { withRouter } from "react-router";
-import * as actions from '../../../store/actions'
+import * as actions from '../../../store/actions';
+import { LANGUAGE } from "../../../utils";
+import DetailSchedule from '../detailDoctor/DetailSchedule';
+import HomeHeader from "../homeHeader/HomeHeader";
+import './DetailDoctor.scss';
+
 class DetailDoctor extends React.Component {
     constructor(props) {
         super(props)
@@ -28,7 +28,6 @@ class DetailDoctor extends React.Component {
     }
     render() {
         let { inforDoctor } = this.state
-        console.log("infor doc tor", inforDoctor);
         let { languageRedux } = this.props
         let nameVi = '', nameEn = ''
         if (inforDoctor && inforDoctor.positionData) {
@@ -56,6 +55,14 @@ class DetailDoctor extends React.Component {
                                     <span>{inforDoctor.Markdown.discription}</span>
                                 }
                             </div>
+                        </div>
+                    </div>
+                    <div className="doctor-schedule">
+                        <div className="doctor-schedule-content">
+                            <DetailSchedule />
+                        </div>
+                        <div className="doctor-schedule-more">
+
                         </div>
                     </div>
                     <div className="doctor_discription">

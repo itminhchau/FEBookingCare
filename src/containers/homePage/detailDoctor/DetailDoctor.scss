@@ -38,16 +38,37 @@
                 font-weight: 600;
             }
 
-            .doctor_name_more {}
+            // .doctor_name_more {}
         }
     }
 
+    .doctor-schedule{
+        width: 100%;
 
+        display: flex;
+        max-width: 1200px;
+      
+        margin: auto;
+        .doctor-schedule-content{
+            width: 70%;
+            border-right: 2px solid green;
+            min-height: 200px;
+            height: auto;
+        }
+        .doctor-schedule-more{
+            width: 30%;
+           
+            height: 100%;
+            min-height: 200px;
+        }
+    }
+   
+    
     .doctor_discription {
         width: 100%;
-        padding: 32px 16px 32px 120px;
+        padding: 36px 16px 32px 165px;
         background: #f9f9f9;
-        margin: 24px 0;
+        margin: 10px 0 24px 0;
         border-top: 1px solid #ddd;
         border-bottom:1px solid #ddd ;
     }

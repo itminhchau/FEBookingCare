@@ -63,5 +63,22 @@
             "create-save": "Lưu thông tin",
             "edit-save": "Lưu thay đổi"
         }
+    },
+    "doctor": {
+        "detail-doctor": {
+            "no-schedule": "Bác sĩ chưa có lịch hẹn ngày hôm nay. Vui lòng chọn ngày khác !",
+            "schedule": "lịch khám"
+        },
+        "manager-doctor": {
+            "title": "Quản lý bác sĩ",
+            "select-doctor": "Bác sĩ",
+            "infor-doctor": "Thông tin bác sĩ",
+            "select-price": "Giá Khám",
+            "select-payment": "Phương thức thanh toán",
+            "select-province": "Khu Vực",
+            "name-clinic": "Tên phòng khám",
+            "address-clinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú"
+        }
     }
 }

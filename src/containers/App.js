@@ -1,21 +1,20 @@
+import { ConnectedRouter as Router } from 'connected-react-router';
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import { ConnectedRouter as Router } from 'connected-react-router';
-import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
-import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
-import { path } from '../utils'
-import Home from '../routes/Home';
-import Login from '../containers/auth/Login';
-import System from '../routes/System';
-import { CustomToastCloseButton } from '../components/CustomToast';
-import HomePage from './homePage/HomePage';
-import CustomScrollbars from '../components/CustomScrollbars';
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import DetailDoctor from './homePage/detailDoctor/DetailDoctor';
+import "slick-carousel/slick/slick.css";
+import CustomScrollbars from '../components/CustomScrollbars';
+import Login from '../containers/auth/Login';
+import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
+import { history } from '../redux';
 import Doctor from '../routes/Doctor';
+import Home from '../routes/Home';
+import System from '../routes/System';
+import { path } from '../utils';
+import DetailDoctor from './homePage/detailDoctor/DetailDoctor';
+import HomePage from './homePage/HomePage';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -55,13 +54,6 @@ class App extends Component {
                                 </Switch>
                             </CustomScrollbars>
                         </div>
-
-                        {/* <ToastContainer
-                            className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
-                            autoClose={false} hideProgressBar={true} pauseOnHover={false}
-                            pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
-                            closeButton={<CustomToastCloseButton />}
-                        /> */}
                         <ToastContainer
                             position="bottom-right"
                             autoClose={5000}

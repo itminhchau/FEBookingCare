@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import "./HomeHandBook.scss"
 import Slider from "react-slick";
 class HomeHandBook extends React.Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
 
         const settings = {
