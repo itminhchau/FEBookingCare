@@ -8,7 +8,8 @@ const initialState = {
     arrayUser: [],
     arrayTopDoctor: [],
     arrayAllDoctor: [],
-    arrayTimeSchedule: []
+    arrayTimeSchedule: [],
+    doctorAllcodePPP: {}
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -129,6 +130,23 @@ const adminReducer = (state = initialState, action) => {
                 ...state
             }
         case actionTypes.GET_DOCTOR_TIME_SCHEDULE_FAIL:
+            state.isLoading = false
+            return {
+                ...state,
+            }
+        // get province ,price, payment
+        case actionTypes.GET_REQUIRE_TO_ALLCODE_START:
+            state.isLoading = true
+            return {
+                ...state,
+            }
+        case actionTypes.GET_REQUIRE_TO_ALLCODE_SUCCESS:
+            state.doctorAllcodePPP = action.data
+            state.isLoading = false
+            return {
+                ...state
+            }
+        case actionTypes.GET_REQUIRE_TO_ALLCODE_FAIL:
             state.isLoading = false
             return {
                 ...state,

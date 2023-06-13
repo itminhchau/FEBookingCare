@@ -1,7 +1,6 @@
-import actionTypes from "./actionTypes";
-import userService from "../../services/userService";
 import { toast } from 'react-toastify';
-import { dispatch } from "../../redux";
+import userService from "../../services/userService";
+import actionTypes from "./actionTypes";
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START
 // })
@@ -319,4 +318,40 @@ export const getDoctorTimeScheduleSuccess = (timeInfor) => ({
 })
 export const getDoctorTimeScheduleFail = () => ({
     type: actionTypes.GET_DOCTOR_TIME_SCHEDULE_FAIL,
+})
+
+// GET province, payment, price
+export const getRequireDoctorAllCode = () => {
+    return async (dispatch, getState) => {
+
+        try {
+            dispatch({ type: actionTypes.GET_REQUIRE_TO_ALLCODE_START })
+            let resPrice = await userService.getAllCodeService('PRICE')
+            let resPayment = await userService.getAllCodeService('PAYMENT')
+            let resProvince = await userService.getAllCodeService('PROVINCE')
+            if (resPrice && resPrice.errCode === 0
+                && resPayment && resPayment.errCode === 0
+                && resProvince && resProvince.errCode === 0
+            ) {
+                let data = {
+                    price: resPrice.data,
+                    payment: resPayment.data,
+                    province: resProvince.data
+                }
+                dispatch(getRequireDoctorAllCodeSuccess(data))
+            } else {
+                dispatch(getRequireDoctorAllCodeFail())
+            }
+        } catch (error) {
+            console.log(" getRequireDoctorAllCodeFail fail", error);
+            dispatch(getRequireDoctorAllCodeFail())
+        }
+    }
+}
+export const getRequireDoctorAllCodeSuccess = (dataInput) => ({
+    type: actionTypes.GET_REQUIRE_TO_ALLCODE_SUCCESS,
+    data: dataInput
+})
+export const getRequireDoctorAllCodeFail = () => ({
+    type: actionTypes.GET_REQUIRE_TO_ALLCODE_FAIL
 })

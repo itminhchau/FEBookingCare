@@ -63,5 +63,22 @@
             "create-save": "save",
             "edit-save": "save change"
         }
+    },
+    "doctor": {
+        "detail-doctor": {
+            "no-schedule": "The doctor doesn't have an appointment for today. Please choose another date!",
+            "schedule": "Schedule"
+        },
+        "manager-doctor": {
+            "title": "Doctor Manager",
+            "select-doctor": "Doctor",
+            "infor-doctor": "Doctor information",
+            "select-price": "Price",
+            "select-payment": "Payment methods",
+            "select-province": "Province",
+            "name-clinic": "Name Clinic",
+            "address-clinic": "Address Clinic",
+            "note": "note"
+        }
     }
 }

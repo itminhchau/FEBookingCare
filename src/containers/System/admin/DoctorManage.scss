@@ -1,10 +1,11 @@
 .doctor-body {
-    .content-body {
+    padding: 24px;
+    .content-first {
         display: flex;
         justify-content: space-around;
 
         width: 100%;
-        padding: 16px;
+        margin-left: 16px;
 
         .content-left {
             width: 400px;
@@ -16,14 +17,16 @@
             text-align: center;
 
             .description {
-                width: 80%;
+                width: 94%;;
                 border: 1px solid #ddd !important;
                 border-radius: 10px;
                 padding: 8px;
             }
         }
     }
-
+    .content-second {
+        margin:0 16px;
+    }
     .wrap-markdown {
         padding: 16px;
     }

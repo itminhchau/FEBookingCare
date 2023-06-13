@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import "./HomeSpecialties.scss"
 import Slider from "react-slick";
 class HomeSpecialties extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+
     render() {
 
         return (
